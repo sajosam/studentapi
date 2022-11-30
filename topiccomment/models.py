@@ -13,7 +13,7 @@ class tbl_topics(models.Model):
 
 class tbl_comments(models.Model):
     comment_id = models.AutoField(primary_key=True)
-    topic_id = models.ForeignKey(tbl_topics, on_delete=models.CASCADE)
+    topic_id = models.ForeignKey(tbl_topics, on_delete=models.CASCADE, related_name='comment')
     comment_name = models.CharField(max_length=50)
     comment_desc = models.CharField(max_length=200)
     comment_date = models.DateTimeField(auto_now_add=True)
