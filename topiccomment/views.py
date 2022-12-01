@@ -29,3 +29,5 @@ class individual_comments(generics.ListAPIView):
     def get_queryset(self):
         topic_id = self.kwargs['topic_id']
         return tbl_comments.objects.filter(topic_id=topic_id)
+
+
