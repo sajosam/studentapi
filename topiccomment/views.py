@@ -39,76 +39,76 @@ class individual_comments(generics.ListAPIView):
 
 
 
-class gettopic(APIView):
-    def get(self, request, format=None):
-        topic = tbl_topics.objects.all()
-        serializer = TopicSerializer(topic, many=True)
-        return Response(serializer.data)
+# class gettopic(APIView):
+#     def get(self, request, format=None):
+#         topic = tbl_topics.objects.all()
+#         serializer = TopicSerializer(topic, many=True)
+#         return Response(serializer.data)
 
-class posttopic(APIView):
-    def post(self, request, format=None):
-        serializer = TopicSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class getcomments(APIView):
-    def get(self, request, format=None):
-        comments = tbl_comments.objects.all()
-        serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data)
-
-class postcomments(APIView):
-    def post(self, request, format=None):
-        serializer = CommentSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# class posttopic(APIView):
+#     def post(self, request, format=None):
+#         serializer = TopicSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class gettopicdetail(APIView):
-    def get(self, request, pk, format=None):
-        topic = tbl_topics.objects.get(pk=pk)
-        serializer = TopicSerializer(topic)
-        return Response(serializer.data)
+# class getcomments(APIView):
+#     def get(self, request, format=None):
+#         comments = tbl_comments.objects.all()
+#         serializer = CommentSerializer(comments, many=True)
+#         return Response(serializer.data)
 
-class getcommentdetail(APIView):
-    def get(self, request, pk, format=None):
-        comment = tbl_comments.objects.get(pk=pk)
-        serializer = CommentSerializer(comment)
-        return Response(serializer.data)
+# class postcomments(APIView):
+#     def post(self, request, format=None):
+#         serializer = CommentSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class posttopicdetail(APIView):
-    def post(self, request, pk, format=None):
-        topic = tbl_topics.objects.get(pk=pk)
-        serializer = TopicSerializer(topic, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class postcommentdetail(APIView):
-    def post(self, request, pk, format=None):
-        comment = tbl_comments.objects.get(pk=pk)
-        serializer = CommentSerializer(comment, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# class gettopicdetail(APIView):
+#     def get(self, request, pk, format=None):
+#         topic = tbl_topics.objects.get(pk=pk)
+#         serializer = TopicSerializer(topic)
+#         return Response(serializer.data)
 
-class gettopiccomments(APIView):
-    def get(self, request, pk, format=None):
-        comments = tbl_comments.objects.filter(topic_id=pk)
-        serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data)
+# class getcommentdetail(APIView):
+#     def get(self, request, pk, format=None):
+#         comment = tbl_comments.objects.get(pk=pk)
+#         serializer = CommentSerializer(comment)
+#         return Response(serializer.data)
 
-class posttopiccomments(APIView):
-    def post(self, request, pk, format=None):
-        serializer = CommentSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# class posttopicdetail(APIView):
+#     def post(self, request, pk, format=None):
+#         topic = tbl_topics.objects.get(pk=pk)
+#         serializer = TopicSerializer(topic, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# class postcommentdetail(APIView):
+#     def post(self, request, pk, format=None):
+#         comment = tbl_comments.objects.get(pk=pk)
+#         serializer = CommentSerializer(comment, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# class gettopiccomments(APIView):
+#     def get(self, request, pk, format=None):
+#         comments = tbl_comments.objects.filter(topic_id=pk)
+#         serializer = CommentSerializer(comments, many=True)
+#         return Response(serializer.data)
+
+# class posttopiccomments(APIView):
+#     def post(self, request, pk, format=None):
+#         serializer = CommentSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
